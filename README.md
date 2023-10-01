@@ -9,5 +9,13 @@ This game makes use of three custom binary file formats, ".save" for save games,
 ## Recursion
 Each maze is randomly generated on game start. The mazes are generated using a randomized depth-first search carving method. In essence, we start with a completely filled map grid and recursively branch into the 4 different directions (up, down, left, right) in random order (hence randomized depth-first search), carving out 2 grid squares at a time. Once all paths have hit a wall or previously carved out space, we are done and have generated a maze. A fun sidenote is that a deterministic depth-first search is actually a common maze-solving algorithm, so roughly this same algorithm can also be used to solve mazes.
 ## 3D Graphics
-
-### Notes
+This game uses a very rudimentary ray-march algorithm to achieve raycast "3D" (really 2D with a 3D-like projection) graphics. Without going into too much detail, essentially the player is actually in a 2D grid map, and the ray-march algorithm shoots rays off in a field of view cone in the position of their heading. We then use the distance at which each ray collides with a wall in order to draw a vertical line on the screen with a length proportional to the distance that the ray traveled. This gives us a first person point of view 3D projection of our 2D space. The addition of textures adds to this a bit with each pixel in a texture is a new vertical line also scaled proportionally to the distance the ray traveled.
+# Notes
+- The ray-march algorithm is quite slow, causing noticeable lag on some computers. Using a DDA algorithm would be much more efficient.
+# References
+I referenced the following external resources in the making of this project:
+- https://en.wikipedia.org/wiki/Maze_generation_algorithm
+- https://www.algosome.com/articles/maze-generation-depth-first.html
+- https://en.wikipedia.org/wiki/Ray_casting#Ray_casting_in_early_computer_games
+- https://lodev.org/cgtutor/raycasting.html (first part with "basic idea", didn't end up using DDA though)
+- https://courses.cs.washington.edu/courses/cse326/07su/prj2/kruskal.html
