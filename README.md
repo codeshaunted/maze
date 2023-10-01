@@ -12,7 +12,7 @@ Each maze is randomly generated on game start. The mazes are generated using a r
 This game uses a very rudimentary ray-march algorithm to achieve raycast "3D" (really 2D with a 3D-like projection) graphics. Without going into too much detail, essentially the player is actually in a 2D grid map, and the ray-march algorithm shoots rays off in a field of view cone in the position of their heading. We then use the distance at which each ray collides with a wall in order to draw a vertical line on the screen with a length proportional to the distance that the ray traveled. This gives us a first person point of view 3D projection of our 2D space. The addition of textures adds to this a bit with each pixel in a texture is a new vertical line also scaled proportionally to the distance the ray traveled.
 # Notes
 - The ray-march algorithm is quite slow, causing noticeable lag on some computers. Using a DDA algorithm would be much more efficient.
-- Yes, I did style the wall textures after "the backrooms" :P
+- Yes, I did style the wall textures after "the backrooms". :P
 # References
 I referenced the following external resources in the making of this project:
 - https://en.wikipedia.org/wiki/Maze_generation_algorithm
